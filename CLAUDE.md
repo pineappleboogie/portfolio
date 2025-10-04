@@ -11,6 +11,14 @@ This is a Next.js 15 portfolio application built with:
 - **Tailwind CSS 4** using the new @theme inline syntax
 - **Geist fonts** (Sans and Mono) via next/font/google
 
+## todo.md
+The `tasks/todo.md` file contains your project task list. Please read the file and follow the instructions.
+
+- Complete each task, then update this file with:  
+  - [x] Mark task as done  
+  - Add a short note on what you did  
+- After finishing a section of tasks, commit your changes with a clear message.  
+
 ## Development Commands
 
 ### Running the Application
@@ -66,3 +74,18 @@ ESLint is configured using the flat config format (eslint.config.mjs) with:
 - `next/core-web-vitals` preset
 - `next/typescript` preset for TypeScript-specific rules
 - Ignores: node_modules, .next, out, build directories
+
+## Learning Documentation
+
+**IMPORTANT**: The developer maintains a LEARNING.md file to document their learning journey from design to development.
+
+**Your role**:
+- **NUDGE, don't write**: When important concepts come up, remind the developer to document them in LEARNING.md
+- **Point out learning moments**: Identify concepts worth documenting (technical concepts, design→code translations, solutions to problems)
+- **Never auto-fill**: Do not write learning entries for them - they want to take ownership of their learning
+- **Session reminders**: At the end of significant work sessions, remind them if there were concepts worth documenting
+
+**Examples of good nudges**:
+- "This concept of [X] would be great to add to your LEARNING.md"
+- "You might want to document this solution - it's something you'll encounter again"
+- "That's a nice design→code connection worth noting in your log!"
