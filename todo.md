@@ -1,6 +1,6 @@
 # Portfolio Implementation Todo
 
-**Last Updated**: 2025-10-04 (Phase 3 Completed)
+**Last Updated**: 2025-10-07 (Phase 3.2 Completed)
 **Total Estimated Time**: ~5.5 hours
 
 ---
@@ -273,117 +273,308 @@
 
 ## Phase 3.2: Homepage Layout Restructure
 **Estimated Duration**: 90 minutes
-**Status**: Not Started
+**Status**: ✅ Completed
 **Goal**: Implement 2-column grid layout system with split navigation and proper section structure
 
 ### Global Layout Setup
-- [ ] Add 24px horizontal margins to page (~5 min)
-  - [ ] Apply `px-6` (24px) to main container
-  - [ ] Ensure consistent spacing across all sections
-  - [ ] Test responsive behavior on mobile
+- [x] Add 24px horizontal margins to page (~5 min)
+  - [x] Apply `px-6` (24px) to main container
+  - [x] Ensure consistent spacing across all sections
+  - [x] Test responsive behavior on mobile
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Applied px-6 to main layout, navigation, and footer for consistent 24px horizontal margins.
 
 ---
 
 ### Navigation Restructure
-- [ ] Implement split navigation layout (~20 min)
-  - [ ] Create 2-column grid for navigation (50/50 split)
-  - [ ] Position nav links in right column, aligned left
-  - [ ] Rename "Fun" link to "Playground"
-  - [ ] Ensure mobile responsiveness
-  - [ ] Test navigation functionality with new layout
+- [x] Implement split navigation layout (~20 min)
+  - [x] Create 2-column grid for navigation (50/50 split)
+  - [x] Position nav links in right column, aligned left
+  - [x] Rename "Fun" link to "Playground"
+  - [x] Ensure mobile responsiveness
+  - [x] Test navigation functionality with new layout
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Navigation restructured with 2-column grid (gap-6 for 24px spacing). Mobile menu button positioned absolutely for proper mobile stacking.
 
 ---
 
 ### Homepage Section Restructure
-- [ ] Implement 2-column grid system (~15 min)
-  - [ ] Set up base 2-column grid with proper gap spacing
-  - [ ] Apply grid to all major sections
-  - [ ] Test responsive collapse to single column on mobile
+- [x] Implement 2-column grid system (~15 min)
+  - [x] Set up base 2-column grid with proper gap spacing
+  - [x] Apply grid to all major sections
+  - [x] Test responsive collapse to single column on mobile
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: All sections use `md:grid md:grid-cols-2 gap-6` pattern. On mobile, grids don't apply and content stacks vertically naturally.
 
 ---
 
-- [ ] Create reusable SectionHeading component (~10 min)
-  - [ ] Large heading text component for section labels
-  - [ ] Proper typography hierarchy
-  - [ ] Consistent spacing and styling
-  - [ ] Use for "Work", "About", etc.
+- [x] Create reusable SectionHeading component (~10 min)
+  - [x] Large heading text component for section labels
+  - [x] Proper typography hierarchy
+  - [x] Consistent spacing and styling
+  - [x] Use for "Work", "About", etc.
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Created SectionHeading component but ultimately used inline headings with tertiary color (gray-400/600) positioned in right column.
 
 ---
 
 ### Work Section
-- [ ] Restructure Work section (~15 min)
-  - [ ] Add large "Work" section heading at top
-  - [ ] Position CaseStudyGrid in 2-column layout
-  - [ ] Ensure cards work within grid system
-  - [ ] Proper spacing between heading and grid
+- [x] Restructure Work section (~15 min)
+  - [x] Add large "Work" section heading at top
+  - [x] Position CaseStudyGrid in 2-column layout
+  - [x] Ensure cards work within grid system
+  - [x] Proper spacing between heading and grid
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Work section uses 2-column grid with heading in right column. White background (removed gray-50). Case studies span full width and display metadata before images.
 
 ---
 
 ### About Section
-- [ ] Restructure About section (~20 min)
-  - [ ] Add large "About" section heading
-  - [ ] Move profile content to left column (image, name, bio)
-  - [ ] Right column ready for additional content
-  - [ ] Maintain 2-column grid consistency
-  - [ ] Update section ID for navigation
+- [x] Restructure About section (~20 min)
+  - [x] Add large "About" section heading
+  - [x] Move profile content to left column (image, name, bio)
+  - [x] Right column ready for additional content
+  - [x] Maintain 2-column grid consistency
+  - [x] Update section ID for navigation
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: About section follows 2-column grid with images in left column, text (heading, name, bio) in right column. Heading appears at top on mobile, in right column on desktop.
 
 ---
 
 ### Footer
-- [ ] Position footer in layout (~10 min)
-  - [ ] Place footer at bottom of page
-  - [ ] Ensure proper spacing from last section
-  - [ ] Verify footer content and styling
-  - [ ] Test responsive behavior
+- [x] Position footer in layout (~10 min)
+  - [x] Place footer at bottom of page
+  - [x] Ensure proper spacing from last section
+  - [x] Verify footer content and styling
+  - [x] Test responsive behavior
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Footer updated with px-6 for edge-to-edge layout with 24px margins.
 
 ---
 
 ### Component Cleanup
-- [ ] Update CaseStudyCard for grid system (~5 min)
-  - [ ] Ensure cards work properly in new 2-column grid
-  - [ ] Verify image aspect ratios and sizing
-  - [ ] Test hover states within new layout
+- [x] Update CaseStudyCard for grid system (~5 min)
+  - [x] Ensure cards work properly in new 2-column grid
+  - [x] Verify image aspect ratios and sizing
+  - [x] Test hover states within new layout
+
+  **Notes/Blockers**: CaseStudyCard restructured to show metadata (CASE STUDY label, title, client/year) before image. Removed border/shadow for cleaner look. Updated spacing to mb-6 for consistency.
+
+---
+
+- [x] Create reusable Container/Section wrappers (~5 min)
+  - [x] Consistent section spacing utilities
+  - [x] Proper semantic HTML structure
+  - [x] Reusable grid layout components
+
+  **Notes/Blockers**: Created Section component wrapper. Removed Container max-width constraints to achieve edge-to-edge layout as per design requirements.
+
+---
+
+### Testing & Refinement
+- [x] Test complete layout (~10 min)
+  - [x] Run dev server and verify all sections
+  - [x] Check navigation functionality
+  - [x] Test responsive behavior (mobile, tablet, desktop)
+  - [x] Verify 24px margins throughout
+  - [x] Ensure 2-column grid consistency
+
+  **Notes/Blockers**: All sections tested and verified. Dev server running successfully at localhost:3002.
+
+---
+
+### Additional Improvements
+- [x] Added 80x80 circular profile image above hero heading
+  - [x] Placeholder ready for actual profile photo
+  - [x] 24px margin below for consistent spacing
+
+- [x] Consistent 24px spacing throughout
+  - [x] All grids use gap-6 (24px) for both horizontal and vertical gaps
+  - [x] Section headings use mb-6 (24px)
+  - [x] Case study cards use mb-6 (24px) between items
+  - [x] Navigation grid uses gap-6 (24px)
+
+- [x] Mobile responsive improvements
+  - [x] Grids only apply on desktop (md:grid)
+  - [x] Content stacks vertically on mobile without grid
+  - [x] No unnecessary spacing on mobile
+  - [x] Clean, simple vertical flow
+
+**Phase 3.2 Deliverable**: ✅ Homepage with 2-column grid system, split navigation, proper section structure, edge-to-edge layout, and consistent 24px spacing throughout
+
+---
+
+## Phase 3.3: Case Study Page Restructure
+**Estimated Duration**: 150 minutes
+**Status**: Not Started
+**Goal**: Implement custom case study page layout with flexible MDX components, collapsible TOC sidebar, and rich content presentation optimized for recruiters and hiring managers
+
+### Type System Updates
+- [x] Extend CaseStudy interface (~5 min)
+  - [x] Add `featureName?: string` field for breadcrumb (e.g., "Magic Ads")
+  - [x] Add `heroImage?: string` field (separate from coverImage)
+  - [x] Add flexible metadata structure: `metadata?: Array<{label: string, value: string | string[]}>`
+  - [x] Metadata examples: Role, Collaborators, Timeline, Skills, Duration, etc.
+  - [x] Timeline format support: "Jun - Jul 2025" as value, with duration like "5 weeks" on separate line
+  - [x] Update types in `src/types/content.ts`
+
+  **Notes/Blockers**: Created MetadataItem interface with flexible label/value structure. Added featureName, heroImage, and metadata fields to CaseStudy interface. All fields are optional for backward compatibility.
+
+---
+
+### Custom MDX Components
+- [ ] Create TextSection component (~25 min)
+  - [ ] Support 3 text types: eyebrow (small), headline (large), body (normal)
+  - [ ] Two layout modes: centered or two-column (left/right aligned)
+  - [ ] Max-width: 640px for readability (optimal for 16px font)
+  - [ ] Props: `eyebrow?`, `headline?`, `body?`, `align?: 'center' | 'left' | 'right'`, `column?: 'left' | 'right'`, `id?`
+  - [ ] Add `id` attribute to section based on eyebrow text (for TOC anchoring)
+  - [ ] 40px vertical spacing between sections (mb-10)
+  - [ ] Create file: `src/components/mdx/TextSection.tsx`
 
   **Notes/Blockers**:
 
 ---
 
-- [ ] Create reusable Container/Section wrappers (~5 min)
-  - [ ] Consistent section spacing utilities
-  - [ ] Proper semantic HTML structure
-  - [ ] Reusable grid layout components
+- [ ] Create MediaSection component (~30 min)
+  - [ ] Full-width image or video display
+  - [ ] Support both `<Image>` and `<video>` elements
+  - [ ] Video auto-play on scroll using Intersection Observer
+  - [ ] Pause video when out of view
+  - [ ] Add pause/play button (bottom-right corner) for videos
+  - [ ] Image captions: always visible, center-aligned below image
+  - [ ] 40px vertical spacing (mb-10)
+  - [ ] Props: `src`, `alt`, `type: 'image' | 'video'`, `caption?`
+  - [ ] Create file: `src/components/mdx/MediaSection.tsx`
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Create MediaGrid component (~20 min)
+  - [ ] Two-column grid layout for images/videos (desktop)
+  - [ ] Stack vertically on mobile
+  - [ ] Support multiple media items
+  - [ ] Auto-play videos when in viewport
+  - [ ] Add pause/play button (bottom-right) for each video
+  - [ ] Captions: always visible, center-aligned below each item
+  - [ ] 40px vertical spacing (mb-10)
+  - [ ] Props: `items: Array<{src, alt, type, caption?}>`
+  - [ ] Create file: `src/components/mdx/MediaGrid.tsx`
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Create CenteredText component (~10 min)
+  - [ ] Large, centered highlight text for key statements
+  - [ ] Max-width: 640px for readability
+  - [ ] Distinct typography styling (larger, bolder)
+  - [ ] 40px vertical spacing (mb-10)
+  - [ ] Props: `children` (text content)
+  - [ ] Create file: `src/components/mdx/CenteredText.tsx`
+
+  **Notes/Blockers**:
+
+---
+
+### Table of Contents Sidebar
+- [ ] Create TableOfContents component (~25 min)
+  - [ ] Collapsible left sidebar (fixed position on desktop)
+  - [ ] Extract eyebrow text from TextSection components to build TOC
+  - [ ] Anchor scroll to sections when clicked
+  - [ ] Highlight active section based on scroll position
+  - [ ] Mobile: collapsed by default, expandable via button
+  - [ ] Desktop: visible by default, collapsible
+  - [ ] Smooth scroll behavior
+  - [ ] Create file: `src/components/content/TableOfContents.tsx`
+
+  **Notes/Blockers**:
+
+---
+
+### Case Study Page Layout
+- [ ] Update case study detail page header (~30 min)
+  - [ ] Add back arrow + "Back" link to /work (always)
+  - [ ] Breadcrumb format: `{client} • {featureName}`
+  - [ ] Display title (large heading)
+  - [ ] Flexible metadata grid: dynamically render columns based on metadata array
+  - [ ] Each metadata item shows label (small font) and value (regular font)
+  - [ ] Support multi-line values (e.g., Timeline: "Jun - Jul 2025" with "5 weeks" below)
+  - [ ] Metadata grid: responsive grid on desktop, stacked on mobile
+  - [ ] Display hero image full-width (use heroImage field, fallback to coverImage)
+  - [ ] Update file: `src/app/work/[slug]/page.tsx`
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Configure MDX component mapping (~15 min)
+  - [ ] Create `mdx-components.tsx` exports for custom components
+  - [ ] Map components: `TextSection`, `MediaSection`, `MediaGrid`, `CenteredText`
+  - [ ] Pass to `<MDXRemote components={...} />`
+  - [ ] Remove default prose styling constraints
+  - [ ] Update file: `src/app/work/[slug]/page.tsx`
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Implement full-width content container (~10 min)
+  - [ ] Remove max-width constraints from content area
+  - [ ] Let MDX components control their own widths
+  - [ ] Add horizontal padding (24px) to match homepage
+  - [ ] Ensure consistent 40px vertical spacing between sections
+  - [ ] Integrate TableOfContents component into layout
+
+  **Notes/Blockers**:
+
+---
+
+### Video Auto-Play Implementation
+- [ ] Build Intersection Observer hook (~15 min)
+  - [ ] Create `useIntersectionObserver` hook for reusability
+  - [ ] Trigger callback when element is 50% visible
+  - [ ] Clean up observer on unmount
+  - [ ] Create file: `src/hooks/useIntersectionObserver.ts` (if needed)
+  - [ ] Or implement directly in MediaSection/MediaGrid components
+
+  **Notes/Blockers**:
+
+---
+
+### Sample Content Update
+- [ ] Update project-alpha.mdx with new components (~15 min)
+  - [ ] Add `featureName` to frontmatter
+  - [ ] Add flexible `metadata` array with Role, Collaborators, Timeline (with duration)
+  - [ ] Example: `metadata: [{label: "Timeline", value: ["Jun - Jul 2025", "5 weeks"]}, ...]`
+  - [ ] Replace standard markdown with custom MDX components
+  - [ ] Demonstrate different text layouts (centered, two-column)
+  - [ ] Add sample media sections (full-width and grid)
+  - [ ] Include centered highlight text examples
+  - [ ] Update file: `content/case-studies/project-alpha.mdx`
 
   **Notes/Blockers**:
 
 ---
 
 ### Testing & Refinement
-- [ ] Test complete layout (~10 min)
-  - [ ] Run dev server and verify all sections
-  - [ ] Check navigation functionality
-  - [ ] Test responsive behavior (mobile, tablet, desktop)
-  - [ ] Verify 24px margins throughout
-  - [ ] Ensure 2-column grid consistency
+- [ ] Test case study page layout (~15 min)
+  - [ ] Run dev server and view case study detail page
+  - [ ] Test all MDX component variations
+  - [ ] Verify video auto-play on scroll and pause/play buttons
+  - [ ] Test TOC: anchor scrolling, active highlighting, collapse/expand
+  - [ ] Check responsive behavior (mobile, tablet, desktop)
+  - [ ] Verify metadata grid: desktop vs mobile layout
+  - [ ] Ensure consistent 40px vertical spacing between sections
+  - [ ] Test back navigation (always goes to /work)
+  - [ ] Verify image captions display correctly
 
   **Notes/Blockers**:
 
 ---
 
-**Phase 3.2 Deliverable**: ✅ Homepage with 2-column grid system, split navigation, and proper section structure
+**Phase 3.3 Deliverable**: ✅ Rich case study pages with flexible metadata, collapsible TOC sidebar, custom MDX components, video controls, and content optimized for recruiters/hiring managers
 
 ---
 
@@ -864,6 +1055,7 @@ After Phase 3.5, review your site and choose:
 - Phase 1: ✅ Completed
 - Phase 2: ✅ Completed
 - Phase 3: ✅ Completed
+- Phase 3.2: ✅ Completed (Homepage Layout Restructure)
 - Phase 3.5: ⬜ Not Started (Real Content Integration)
 - Phase 4: ⬜ Not Started (Style System - Optional based on decision point)
 - Phase 5: ⬜ Not Started (AI Restyle - Optional based on decision point)

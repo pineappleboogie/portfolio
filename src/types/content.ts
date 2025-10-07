@@ -17,6 +17,15 @@ export interface Frontmatter {
 }
 
 /**
+ * Metadata item for case study detail pages.
+ * Supports flexible key-value pairs for any project information.
+ */
+export interface MetadataItem {
+  label: string; // Display label (e.g., "Role", "Timeline", "Collaborators")
+  value: string | string[]; // Single value or array for multi-line display
+}
+
+/**
  * Case Study content structure.
  * Represents a portfolio work item with detailed project information.
  */
@@ -27,6 +36,9 @@ export interface CaseStudy extends Frontmatter {
   client?: string; // Optional client name
   year?: string; // Project year (e.g., "2024")
   role?: string[]; // Your role in the project (e.g., ["Lead Designer", "Sole Designer", "Design QA"])
+  featureName?: string; // Feature name for breadcrumb (e.g., "Magic Ads")
+  heroImage?: string; // Separate hero image for detail page (fallback to coverImage if not provided)
+  metadata?: MetadataItem[]; // Flexible metadata array for detail page header
 }
 
 /**
