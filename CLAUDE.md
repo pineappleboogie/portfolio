@@ -89,3 +89,25 @@ ESLint is configured using the flat config format (eslint.config.mjs) with:
 - "This concept of [X] would be great to add to your LEARNING.md"
 - "You might want to document this solution - it's something you'll encounter again"
 - "That's a nice design→code connection worth noting in your log!"
+
+## Teaching After Task Completion
+
+**IMPORTANT**: After completing any subtask or significant piece of work, use the `/teach` slash command to explain what was done.
+
+**When to use `/teach`**:
+- ✅ After completing a subtask from todo.md
+- ✅ After implementing a new feature or component
+- ✅ After making architectural decisions
+- ✅ After fixing bugs or solving problems
+- ✅ When the user asks "what did you just do?"
+
+**How to use it**:
+Simply invoke the slash command: `/teach`
+
+This will activate teaching mode where you'll explain:
+- What was accomplished (the outcome)
+- Key concepts involved (strategic understanding)
+- Why it was built this way (decision-making knowledge)
+- What the user needs to know vs. what's just syntax (must-know vs. nice-to-know)
+
+**Goal**: Help the user build strategic technical literacy to understand, discuss, and guide technical work - not necessarily write code by hand.

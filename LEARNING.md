@@ -31,6 +31,169 @@ A daily journal of my journey from design to development.
 
 ---
 
+
+## 2025-10-06
+
+### What I Learned Today
+- react component structure
+- const vs. let
+- .filter()
+- dynamic routing in next.js
+- Rendering strategy with: Static, server side, client side
+- await params
+- generateMetaData
+- generateStaticParams
+- 404 page not found error handling
+
+
+
+### Technical Concepts
+
+
+**React component structure**
+
+```typescript
+//Simplest component
+- function Greeting() {
+    return <h1>Hello world!</h1>
+} 
+
+//using it
+<Greeting />
+```
+
+```typescript
+//Adding props
+- function Greeting({ name }){
+    return <h1>Hello {name}!</h1>
+}
+
+//using it
+<Greeting name="Alex"/>
+// Renders: <h1>Hello, Alex!</h1>
+```
+
+
+**.filter()**
+- build-in function,
+- We can declare temporary variable names on the fly, caseStudy.filter((cs) => cs.featured)
+    - `cs` is a variable name on the fly
+
+**dynamic routing in next.js**
+Folder: app/work/[slug]/page.tsx
+
+**await params**
+- always use await params in any dynamic route
+- Use in:
+    1. generateMetaData()
+    2. 
+- `params` is a promise that is opened with `await` to access the actual URL values inside
+
+**generateStaticParams**
+This is used to declare a page to be built at build time
+
+
+Static (SSG): Renders on build time, use when content doesnt change often
+Server (SSR): Renders on every request, use when content changes per user or frequently
+Client (CSR): Renders in the browser, use when highly interactive, user specific
+
+Examples
+Page	            Strategy	    Why
+Homepage	        Static (SSG)	Same for everyone, doesn't change often
+Product listings	Static (SSG)	Pre-build all category pages
+Product details	    Static (SSG)	Pre-build all product pages
+User account	    Server (SSR)	Personalized, different per user
+Shopping cart	    Client (CSR)	Interactive, updates frequently
+Checkout	        Server (SSR)	Needs real-time inventory check
+
+- Shape matching rule:
+    - The returned object keys MUST match folder bracket names
+    Folder: app/work/[slug]/page.tsx
+    Return: { slug: 'value' }
+
+    Folder: app/blog/[category]/[id]/page.tsx
+    Return: { category: 'tech', id: '123' } 
+
+
+**generateMetaData()**
+- Hierachy follows from Root layout (default metadata for entire site)
+    - -> Page specific overrides
+
+- Best practice to use for any public facing pages, searchable or sharable
+- Skip for admin panels, authentication pages, anything you don't want to be indexed
+
+
+**Error handling pattern**
+- 404 pattern
+    - Must add handling `if (!caseStudy) {notFound}; //shows 404 page by default`
+
+- For customisation, create `app/not-found.tsx` for custom 404 design instead of next.js default
+
+
+### Design → Code Translation
+*Connections between design skills and code*
+
+### Challenges & Solutions
+*Problems encountered and how you solved them*
+
+### Questions / To Explore
+*Things you're curious about or don't fully understand yet*
+
+### Checklist
+- [] Folder name [slug] creates dynamic route
+- [] Always await params before using it
+- [] generateStaticParams() returns array of objects matching route structure
+- [] Shape matching: { slug: ... } for [slug] folder
+- [] Static generation happens at build time, renders complete HTML
+- [] Add generateMetadata() for better SEO
+- [] Check if data exists, use notFound() if missing
+- [] New content requires rebuild for static sites
+
+### Tomorrow's Goals
+*What you want to tackle next*
+
+---
+
+
+## 2025-10-05
+
+### What I Learned Today
+- Learned about fs, path modules
+
+### Technical Concepts
+**fs**: read file
+
+**path**: write file address
+
+**export vs default export**
+- you can only have one default export in one file
+    - when you import, you can call it anything, no curly brace{} when importing
+    - not part of the modern best practice due to more inconsistencies in code if anyone can name what they want
+- For "export", aka "named export", you can have multiple in a file
+    - when you import, you have to use the actual name {actualName}
+    - Best practice in modern coding
+
+
+
+
+### Design → Code Translation
+*Connections between design skills and code*
+
+### Challenges & Solutions
+*Problems encountered and how you solved them*
+
+### Questions / To Explore
+*Things you're curious about or don't fully understand yet*
+
+### Resources Used
+*Links, docs, tutorials that helped*
+
+### Tomorrow's Goals
+*What you want to tackle next*
+
+---
+
+
 ## 2025-10-04
 
 ### What I Learned Today
@@ -43,6 +206,7 @@ A daily journal of my journey from design to development.
 - Learned about Typescript interface and types
 - MDX utilities
 - Navigation components
+- CaseCardGrid and CaseCard and how props are passed from parent to child
 
 ### Technical Concepts
 

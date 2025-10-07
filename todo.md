@@ -271,6 +271,264 @@
 
 ---
 
+## Phase 3.2: Homepage Layout Restructure
+**Estimated Duration**: 90 minutes
+**Status**: Not Started
+**Goal**: Implement 2-column grid layout system with split navigation and proper section structure
+
+### Global Layout Setup
+- [ ] Add 24px horizontal margins to page (~5 min)
+  - [ ] Apply `px-6` (24px) to main container
+  - [ ] Ensure consistent spacing across all sections
+  - [ ] Test responsive behavior on mobile
+
+  **Notes/Blockers**:
+
+---
+
+### Navigation Restructure
+- [ ] Implement split navigation layout (~20 min)
+  - [ ] Create 2-column grid for navigation (50/50 split)
+  - [ ] Position nav links in right column, aligned left
+  - [ ] Rename "Fun" link to "Playground"
+  - [ ] Ensure mobile responsiveness
+  - [ ] Test navigation functionality with new layout
+
+  **Notes/Blockers**:
+
+---
+
+### Homepage Section Restructure
+- [ ] Implement 2-column grid system (~15 min)
+  - [ ] Set up base 2-column grid with proper gap spacing
+  - [ ] Apply grid to all major sections
+  - [ ] Test responsive collapse to single column on mobile
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Create reusable SectionHeading component (~10 min)
+  - [ ] Large heading text component for section labels
+  - [ ] Proper typography hierarchy
+  - [ ] Consistent spacing and styling
+  - [ ] Use for "Work", "About", etc.
+
+  **Notes/Blockers**:
+
+---
+
+### Work Section
+- [ ] Restructure Work section (~15 min)
+  - [ ] Add large "Work" section heading at top
+  - [ ] Position CaseStudyGrid in 2-column layout
+  - [ ] Ensure cards work within grid system
+  - [ ] Proper spacing between heading and grid
+
+  **Notes/Blockers**:
+
+---
+
+### About Section
+- [ ] Restructure About section (~20 min)
+  - [ ] Add large "About" section heading
+  - [ ] Move profile content to left column (image, name, bio)
+  - [ ] Right column ready for additional content
+  - [ ] Maintain 2-column grid consistency
+  - [ ] Update section ID for navigation
+
+  **Notes/Blockers**:
+
+---
+
+### Footer
+- [ ] Position footer in layout (~10 min)
+  - [ ] Place footer at bottom of page
+  - [ ] Ensure proper spacing from last section
+  - [ ] Verify footer content and styling
+  - [ ] Test responsive behavior
+
+  **Notes/Blockers**:
+
+---
+
+### Component Cleanup
+- [ ] Update CaseStudyCard for grid system (~5 min)
+  - [ ] Ensure cards work properly in new 2-column grid
+  - [ ] Verify image aspect ratios and sizing
+  - [ ] Test hover states within new layout
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Create reusable Container/Section wrappers (~5 min)
+  - [ ] Consistent section spacing utilities
+  - [ ] Proper semantic HTML structure
+  - [ ] Reusable grid layout components
+
+  **Notes/Blockers**:
+
+---
+
+### Testing & Refinement
+- [ ] Test complete layout (~10 min)
+  - [ ] Run dev server and verify all sections
+  - [ ] Check navigation functionality
+  - [ ] Test responsive behavior (mobile, tablet, desktop)
+  - [ ] Verify 24px margins throughout
+  - [ ] Ensure 2-column grid consistency
+
+  **Notes/Blockers**:
+
+---
+
+**Phase 3.2 Deliverable**: ✅ Homepage with 2-column grid system, split navigation, and proper section structure
+
+---
+
+## Phase 3.5: Real Content Integration
+**Estimated Duration**: 3-5 hours (depending on content readiness)
+**Status**: Not Started
+**Goal**: Replace all placeholder content with your real work and authentic voice
+
+### Homepage Personal Content
+- [ ] Update hero section with real name and introduction (~5 min)
+  - [ ] Replace "Your Name" with actual name
+  - [ ] Write authentic tagline/introduction
+  - [ ] Review tone and voice
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Write real "About Me" bio (~15 min)
+  - [ ] Craft 3 authentic paragraphs about your background
+  - [ ] Include design philosophy and approach
+  - [ ] Add personal touch (what drives you, interests, etc.)
+  - [ ] Ensure it connects with your target audience
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Add personal photos to About section (~15 min)
+  - [ ] Select 2-3 professional photos of yourself
+  - [ ] Add images to `/public/images/about/`
+  - [ ] Update page.tsx to reference real images
+  - [ ] Ensure images are web-optimized (resize if needed)
+
+  **Notes/Blockers**:
+
+---
+
+### Case Study Content
+- [ ] Identify which projects to showcase (~10 min)
+  - [ ] Choose 3-5 of your best/most relevant projects
+  - [ ] Decide which 2-3 should be featured on homepage
+  - [ ] Gather existing documentation/assets for each
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Write Case Study #1 (~60-90 min)
+  - [ ] Create/update MDX file in `content/case-studies/`
+  - [ ] Write complete case study following structure:
+    - Overview and challenge
+    - Your role and responsibilities
+    - Research and discovery process
+    - Design solution and key decisions
+    - Results and impact
+    - Key learnings
+  - [ ] Update frontmatter (title, description, tags, client, year, role, featured, slug)
+  - [ ] Add project images to `/public/images/case-studies/[project-name]/`
+  - [ ] Reference images in MDX content
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Write Case Study #2 (~60-90 min)
+  - [ ] Create/update MDX file in `content/case-studies/`
+  - [ ] Write complete case study following same structure as #1
+  - [ ] Update frontmatter with project details
+  - [ ] Add project images and reference in MDX
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Write Case Study #3 (~60-90 min)
+  - [ ] Create/update MDX file in `content/case-studies/`
+  - [ ] Write complete case study following same structure as #1
+  - [ ] Update frontmatter with project details
+  - [ ] Add project images and reference in MDX
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] (Optional) Write additional case studies
+  - [ ] Repeat process for remaining projects as needed
+
+  **Notes/Blockers**:
+
+---
+
+### Gallery/Fun Content
+- [ ] Replace placeholder fun items (~30 min)
+  - [ ] Select 5-8 creative/experimental projects to showcase
+  - [ ] Create MDX files for each in `content/fun/`
+  - [ ] Write short descriptions and context
+  - [ ] Add images/videos to `/public/images/fun/`
+  - [ ] Update frontmatter (title, description, mediaType, mediaUrl)
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Remove placeholder case studies (~5 min)
+  - [ ] Delete `project-alpha.mdx`, `project-beta.mdx`, `project-charlie.mdx`
+  - [ ] Clean up any unused placeholder images
+
+  **Notes/Blockers**:
+
+---
+
+### Content Review & Critical Fixes
+- [ ] Test site with real content (~10 min)
+  - [ ] Run dev server: `npm run dev`
+  - [ ] Review all pages (Home, Work detail pages, Fun)
+  - [ ] Check mobile responsiveness
+  - [ ] Verify all images load correctly
+  - [ ] Test navigation and links
+
+  **Notes/Blockers**:
+
+---
+
+- [ ] Fix only layout-breaking issues (~15 min)
+  - [ ] Fix any content that overflows or breaks layout
+  - [ ] Adjust image aspect ratios if needed
+  - [ ] Fix any critical responsive issues
+  - [ ] Note (don't fix yet) polish ideas for later
+
+  **Notes/Blockers**:
+
+---
+
+**Phase 3.5 Deliverable**: ✅ Authentic portfolio with real content, ready for layout refinement
+
+---
+
+**[DECISION POINT]**
+After Phase 3.5, review your site and choose:
+- **Path A**: Simple polish and launch (Phase 6 subset: ~1-2 hours)
+- **Path B**: Full style system + AI restyle (Phase 4 → 5 → 6: ~3-4 hours)
+
+---
+
 ## Phase 4: Style System
 **Estimated Duration**: 45 minutes
 **Status**: Not Started
@@ -606,6 +864,7 @@
 - Phase 1: ✅ Completed
 - Phase 2: ✅ Completed
 - Phase 3: ✅ Completed
-- Phase 4: ⬜ Not Started
-- Phase 5: ⬜ Not Started
-- Phase 6: ⬜ Not Started
+- Phase 3.5: ⬜ Not Started (Real Content Integration)
+- Phase 4: ⬜ Not Started (Style System - Optional based on decision point)
+- Phase 5: ⬜ Not Started (AI Restyle - Optional based on decision point)
+- Phase 6: ⬜ Not Started (Polish & Optimization)
