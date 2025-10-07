@@ -466,15 +466,15 @@
 
 ---
 
-- [ ] Create CenteredText component (~10 min)
-  - [ ] Large, centered highlight text for key statements
-  - [ ] Max-width: 640px for readability
-  - [ ] Distinct typography styling (larger, bolder)
-  - [ ] 40px vertical spacing (mb-10)
-  - [ ] Props: `children` (text content)
-  - [ ] Create file: `src/components/mdx/CenteredText.tsx`
+- [x] Create CenteredText component (~10 min)
+  - [x] Large, centered highlight text for key statements
+  - [x] Max-width: 640px for readability
+  - [x] Distinct typography styling (larger, bolder)
+  - [x] 40px vertical spacing (mb-10)
+  - [x] Props: `children` (text content)
+  - [x] Create file: `src/components/mdx/CenteredText.tsx`
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Simple presentational component for highlighting key statements or pull quotes. Uses responsive text sizing (2xl on mobile, 3xl on desktop) and center alignment within max-width container.
 
 ---
 
