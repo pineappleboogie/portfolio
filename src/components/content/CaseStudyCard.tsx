@@ -32,53 +32,38 @@ export default function CaseStudyCard({
   return (
     <Link
       href={`/work/${slug}`}
-      className="group block overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 hover:shadow-lg"
+      className="group block mb-6"
     >
-      {/* Cover Image */}
-      <div className="relative aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-800">
-        <Image
-          src={coverImage}
-          alt={title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-      </div>
+      {/* Metadata Section - appears before image */}
+      <div className="mb-4">
+        <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+          CASE STUDY
+        </p>
 
-      {/* Content */}
-      <div className="p-6">
+        {/* Title */}
+        <h3 className="text-xl md:text-2xl font-semibold text-[var(--color-foreground)] mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+          {title}
+        </h3>
+
         {/* Client/Year metadata */}
         {(client || year) && (
-          <div className="flex items-center gap-2 mb-2 text-xs text-gray-500 dark:text-gray-400">
+          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             {client && <span>{client}</span>}
             {client && year && <span>•</span>}
             {year && <span>{year}</span>}
           </div>
         )}
+      </div>
 
-        {/* Title */}
-        <h3 className="text-xl font-semibold text-[var(--color-foreground)] mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
-          {title}
-        </h3>
-
-        {/* Description */}
-        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
-          {description}
-        </p>
-
-        {/* Tags */}
-        {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+      {/* Cover Image - full width */}
+      <div className="relative aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-800 rounded-lg">
+        <Image
+          src={coverImage}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+        />
       </div>
     </Link>
   );

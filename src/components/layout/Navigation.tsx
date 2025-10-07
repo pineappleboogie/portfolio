@@ -108,8 +108,8 @@ export default function Navigation() {
 
   // Helper function to determine if a link is active
   const isActive = (path: string) => {
-    // For page routes (/fun), check pathname first
-    if (path === '/fun' || path === '/preview') {
+    // For page routes (/playground), check pathname first
+    if (path === '/playground' || path === '/preview') {
       return pathname.startsWith(path);
     }
 
@@ -136,22 +136,25 @@ export default function Navigation() {
   const navLinks = [
     { href: '/#work', label: 'Work' },
     { href: '/#about', label: 'About' },
-    { href: '/fun', label: 'Fun' },
+    { href: '/playground', label: 'Playground' },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-[var(--color-background)]/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo/Name */}
-          <Link
-            href="/"
-            className="text-xl font-semibold text-[var(--color-foreground)] hover:opacity-70 transition-opacity"
-          >
-            Portfolio
-          </Link>
+    <nav className="sticky top-0 z-50 bg-[var(--color-background)] px-4 md:px-6">
+      <div>
+        {/* 2-column grid layout for desktop, 24px gap */}
+        <div className="grid md:grid-cols-2 gap-6 h-16 items-center">
+          {/* Left column - Logo/Name */}
+          <div>
+            <Link
+              href="/"
+              className="text-xl font-semibold text-[var(--color-foreground)] hover:opacity-70 transition-opacity"
+            >
+              Portfolio
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
+          {/* Right column - Desktop Navigation (aligned left) */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -169,10 +172,10 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - positioned absolutely on mobile */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="md:hidden absolute right-4 p-2 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >

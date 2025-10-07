@@ -436,33 +436,33 @@
 
 ---
 
-- [ ] Create MediaSection component (~30 min)
-  - [ ] Full-width image or video display
-  - [ ] Support both `<Image>` and `<video>` elements
-  - [ ] Video auto-play on scroll using Intersection Observer
-  - [ ] Pause video when out of view
-  - [ ] Add pause/play button (bottom-right corner) for videos
-  - [ ] Image captions: always visible, center-aligned below image
-  - [ ] 40px vertical spacing (mb-10)
-  - [ ] Props: `src`, `alt`, `type: 'image' | 'video'`, `caption?`
-  - [ ] Create file: `src/components/mdx/MediaSection.tsx`
+- [x] Create MediaSection component (~30 min)
+  - [x] Full-width image or video display
+  - [x] Support both `<Image>` and `<video>` elements
+  - [x] Video auto-play on scroll using Intersection Observer
+  - [x] Pause video when out of view
+  - [x] Add pause/play button (bottom-right corner) for videos
+  - [x] Image captions: always visible, center-aligned below image
+  - [x] 40px vertical spacing (mb-10)
+  - [x] Props: `src`, `alt`, `type: 'image' | 'video'`, `caption?`, `poster?`
+  - [x] Create file: `src/components/mdx/MediaSection.tsx`
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Component created with Intersection Observer for auto-play at 50% visibility. Added optional `poster` prop for video thumbnails before load.
 
 ---
 
-- [ ] Create MediaGrid component (~20 min)
-  - [ ] Two-column grid layout for images/videos (desktop)
-  - [ ] Stack vertically on mobile
-  - [ ] Support multiple media items
-  - [ ] Auto-play videos when in viewport
-  - [ ] Add pause/play button (bottom-right) for each video
-  - [ ] Captions: always visible, center-aligned below each item
-  - [ ] 40px vertical spacing (mb-10)
-  - [ ] Props: `items: Array<{src, alt, type, caption?}>`
-  - [ ] Create file: `src/components/mdx/MediaGrid.tsx`
+- [x] Create MediaGrid component (~20 min)
+  - [x] Two-column grid layout for images/videos (desktop)
+  - [x] Stack vertically on mobile
+  - [x] Support multiple media items
+  - [x] Auto-play videos when in viewport
+  - [x] Add pause/play button (bottom-right) for each video
+  - [x] Captions: always visible, center-aligned below each item
+  - [x] 40px vertical spacing (mb-10)
+  - [x] Props: `items: Array<{src, alt, type, caption?, poster?}>`
+  - [x] Create file: `src/components/mdx/MediaGrid.tsx`
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Two-column responsive grid with individual Intersection Observers for each video item. Reuses same auto-play logic as MediaSection. Added optional `poster` prop for video thumbnails.
 
 ---
 

@@ -32,6 +32,61 @@ A daily journal of my journey from design to development.
 ---
 
 
+## 2025-10-07
+
+### What I Learned Today
+- using a flexible metaDataItem as a flexible field in an interface
+- Component prop configurations
+- anchor scroll id and slugifying the id
+
+### Technical Concepts
+**Flexible MetaData**
+- When there are cases where different files might need different meta data, we can create a flexible metadata within an interface
+
+e.g.
+```typescript
+export interface MetadataItem {
+  label: string; // Display label (e.g., "Role", "Timeline", "Collaborators")
+  value: string | string[]; // Single value or array for multi-line display
+}
+
+//then we add this to the interface
+export interface CaseStudy extends Frontmatter {
+  metadata?: MetadataItem[]; // Flexible metadata array for detail page header
+}
+
+```
+
+This gives us the flexibility to give any label and value we want for each markdown file
+
+
+**Component prop configurations**
+- The way we think of how we design the component props is just like how I would consider the Figma component properties. Apply the same level of systems thinking. 
+- For the case of the text configuration
+    - Eyebrow text: visible component property + editable text
+    - Headline text: visible component property + editable text
+    - Body text: visible component property + editable text
+    - Layout: Variants: Grid/Centre
+    - Alignment: Variants: Left/Right
+
+
+### Design → Code Translation
+*Connections between design skills and code*
+
+### Challenges & Solutions
+*Problems encountered and how you solved them*
+
+### Questions / To Explore
+*Things you're curious about or don't fully understand yet*
+
+### Resources Used
+*Links, docs, tutorials that helped*
+
+### Tomorrow's Goals
+*What you want to tackle next*
+
+---
+
 ## 2025-10-06
 
 ### What I Learned Today

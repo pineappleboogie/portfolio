@@ -8,6 +8,7 @@ interface MediaSectionProps {
   alt: string;
   type: 'image' | 'video';
   caption?: string;
+  poster?: string; // Thumbnail image shown before video loads
 }
 
 /**
@@ -20,7 +21,7 @@ interface MediaSectionProps {
  * - Pause/play button for videos (bottom-right corner)
  * - Always-visible captions, center-aligned below media
  */
-export function MediaSection({ src, alt, type, caption }: MediaSectionProps) {
+export function MediaSection({ src, alt, type, caption, poster }: MediaSectionProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -84,6 +85,7 @@ export function MediaSection({ src, alt, type, caption }: MediaSectionProps) {
             <video
               ref={videoRef}
               src={src}
+              poster={poster}
               className="w-full h-auto"
               loop
               muted

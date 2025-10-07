@@ -12,7 +12,7 @@ This is a Next.js 15 portfolio application built with:
 - **Geist fonts** (Sans and Mono) via next/font/google
 
 ## todo.md
-The `tasks/todo.md` file contains your project task list. Please read the file and follow the instructions.
+The `todo.md` file contains your project task list. Please read the file and follow the instructions.
 
 - Complete each task, then update this file with:  
   - [x] Mark task as done  

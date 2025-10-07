@@ -45,12 +45,10 @@ export default function CaseStudyGrid({
   };
 
   return (
-    <div
-      className={`grid grid-cols-1 md:grid-cols-2 ${gridColumns[columns]} gap-6 md:gap-8`}
-    >
+    <>
       {displayedCaseStudies.map((caseStudy) => (
         <CaseStudyCard key={caseStudy.slug} caseStudy={caseStudy} />
       ))}
-    </div>
+    </>
   );
 }
