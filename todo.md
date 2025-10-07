@@ -423,16 +423,16 @@
 ---
 
 ### Custom MDX Components
-- [ ] Create TextSection component (~25 min)
-  - [ ] Support 3 text types: eyebrow (small), headline (large), body (normal)
-  - [ ] Two layout modes: centered or two-column (left/right aligned)
-  - [ ] Max-width: 640px for readability (optimal for 16px font)
-  - [ ] Props: `eyebrow?`, `headline?`, `body?`, `align?: 'center' | 'left' | 'right'`, `column?: 'left' | 'right'`, `id?`
-  - [ ] Add `id` attribute to section based on eyebrow text (for TOC anchoring)
-  - [ ] 40px vertical spacing between sections (mb-10)
-  - [ ] Create file: `src/components/mdx/TextSection.tsx`
+- [x] Create TextSection component (~25 min)
+  - [x] Support 3 text types: eyebrow (small), headline (large), body (normal)
+  - [x] Two layout modes: centered or two-column (left/right aligned)
+  - [x] Max-width: 640px for readability (optimal for 16px font)
+  - [x] Props: `eyebrow?`, `headline?`, `body?`, `align?: 'center' | 'left' | 'right'`, `column?: 'left' | 'right'`, `id?`
+  - [x] Add `id` attribute to section based on eyebrow text (for TOC anchoring)
+  - [x] 40px vertical spacing between sections (mb-10)
+  - [x] Create file: `src/components/mdx/TextSection.tsx`
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Created flexible TextSection with three text types (eyebrow, headline, body), two layout modes (centered/two-column), and automatic ID generation from eyebrow for TOC anchoring. Max-width 640px for optimal readability.
 
 ---
 
