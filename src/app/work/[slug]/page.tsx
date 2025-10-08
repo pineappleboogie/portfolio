@@ -13,10 +13,14 @@
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllCaseStudies, getCaseStudyBySlug } from '@/lib/mdx';
-import Container from '@/components/layout/Container';
+import { TextSection } from '@/components/mdx/TextSection';
+import { MediaSection } from '@/components/mdx/MediaSection';
+import { MediaGrid } from '@/components/mdx/MediaGrid';
+import { CenteredText } from '@/components/mdx/CenteredText';
+import { HeroImage } from '@/components/mdx/HeroImage';
+import TableOfContents from '@/components/content/TableOfContents';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 
@@ -66,99 +70,93 @@ export default async function CaseStudyPage({
 
   const { frontmatter, content } = caseStudy;
 
-  return (
-    <article className="py-12">
-      {/* Header */}
-      <Container size="lg">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[var(--color-foreground)] transition-colors mb-8"
-        >
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back to home
-        </Link>
+  // MDX components for custom case study elements
+  const components = {
+    TextSection,
+    MediaSection,
+    MediaGrid,
+    CenteredText,
+  };
 
-        <div className="mb-8">
-          {/* Metadata */}
-          <div className="flex items-center gap-3 mb-4 text-sm text-gray-600 dark:text-gray-400">
-            {frontmatter.client && <span>{frontmatter.client}</span>}
-            {frontmatter.client && frontmatter.year && <span>•</span>}
-            {frontmatter.year && <span>{frontmatter.year}</span>}
-          </div>
+  return (
+    <div className="md:flex md:gap-0">
+      {/* Table of Contents Sidebar */}
+      <TableOfContents />
+
+      <article className="flex-1 px-6 py-12">
+        {/* Header */}
+        <div className="max-w-6xl mx-auto mb-12">
+          {/* Back Link */}
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[var(--color-foreground)] transition-colors mb-6"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            Back
+          </Link>
+
+          {/* Breadcrumb: Client • Feature Name */}
+          {(frontmatter.client || frontmatter.featureName) && (
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+              {frontmatter.client}
+              {frontmatter.client && frontmatter.featureName && ' • '}
+              {frontmatter.featureName}
+            </p>
+          )}
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-foreground)] mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-foreground)] mb-8">
             {frontmatter.title}
           </h1>
 
-          {/* Description */}
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-6">
-            {frontmatter.description}
-          </p>
-
-          {/* Role & Tags */}
-          <div className="flex flex-wrap gap-4">
-            {frontmatter.role && frontmatter.role.length > 0 && (
-              <div>
-                <span className="text-sm font-medium text-gray-500 dark:text-gray-400 mr-2">
-                  Role:
-                </span>
-                {frontmatter.role.map((r, i) => (
-                  <span
-                    key={r}
-                    className="text-sm text-[var(--color-foreground)]"
-                  >
-                    {r}
-                    {i < frontmatter.role!.length - 1 && ', '}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {frontmatter.tags && frontmatter.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {frontmatter.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Flexible Metadata Grid */}
+          {frontmatter.metadata && frontmatter.metadata.length > 0 && (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+              {frontmatter.metadata.map((item, index) => (
+                <div key={index}>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+                    {item.label}
+                  </p>
+                  {Array.isArray(item.value) ? (
+                    item.value.map((val, i) => (
+                      <p key={i} className="text-sm text-[var(--color-foreground)]">
+                        {val}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="text-sm text-[var(--color-foreground)]">{item.value}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Cover Image */}
-        <div className="relative aspect-[16/9] rounded-lg overflow-hidden mb-12">
-          <Image
-            src={frontmatter.coverImage}
+        {/* Hero Image (full-width) */}
+        {(frontmatter.heroImage || frontmatter.coverImage) && (
+          <HeroImage
+            src={frontmatter.heroImage || frontmatter.coverImage}
             alt={frontmatter.title}
-            fill
-            className="object-cover"
-            priority
           />
-        </div>
-      </Container>
+        )}
 
-      {/* MDX Content */}
-      <Container size="md">
-        <div className="prose prose-lg dark:prose-invert max-w-none">
+        {/* MDX Content - Full Width */}
+        <div className="max-w-full">
           <MDXRemote
             source={content}
+            components={components}
             options={{
               mdxOptions: {
                 remarkPlugins: [remarkGfm],
@@ -167,7 +165,7 @@ export default async function CaseStudyPage({
             }}
           />
         </div>
-      </Container>
-    </article>
+      </article>
+    </div>
   );
 }

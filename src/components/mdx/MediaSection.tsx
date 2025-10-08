@@ -71,22 +71,31 @@ export function MediaSection({ src, alt, type, caption, poster }: MediaSectionPr
 
   return (
     <div className="mb-10">
-      <div className="relative w-full">
+      <div className="relative w-full aspect-[16/9]">
         {type === 'image' ? (
-          <Image
-            src={src}
-            alt={alt}
-            width={1920}
-            height={1080}
-            className="w-full h-auto"
-          />
+          <div className="relative w-full h-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+            <Image
+              src={src}
+              alt={alt}
+              fill
+              className="object-cover"
+              onError={(e) => {
+                // Hide broken image and show placeholder
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+            {/* Placeholder text shown if image fails to load */}
+            <span className="absolute text-gray-400 dark:text-gray-600 text-sm">
+              {alt}
+            </span>
+          </div>
         ) : (
-          <>
+          <div className="relative w-full h-full bg-gray-200 dark:bg-gray-800">
             <video
               ref={videoRef}
               src={src}
               poster={poster}
-              className="w-full h-auto"
+              className="w-full h-full object-cover"
               loop
               muted
               playsInline
@@ -127,7 +136,7 @@ export function MediaSection({ src, alt, type, caption, poster }: MediaSectionPr
                 </svg>
               )}
             </button>
-          </>
+          </div>
         )}
       </div>
 

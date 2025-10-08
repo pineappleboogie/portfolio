@@ -65,7 +65,10 @@ export function TextSection({
       <div className={column ? '' : contentClasses}>
         {/* Eyebrow text - small label */}
         {eyebrow && (
-          <p className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+          <p
+            data-eyebrow
+            className="text-sm text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3"
+          >
             {eyebrow}
           </p>
         )}

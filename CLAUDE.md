@@ -90,8 +90,13 @@ ESLint is configured using the flat config format (eslint.config.mjs) with:
 - "You might want to document this solution - it's something you'll encounter again"
 - "That's a nice design→code connection worth noting in your log!"
 
-## Teaching After Task Completion
+## Actions After Task Completion
 
+## Update `todo.md`
+**IMPORTANT**: After completing any subtask or signicant piece of work, update the `todo.md` page
+
+
+### Teacher
 **IMPORTANT**: After completing any subtask or significant piece of work, use the `/teach` slash command to explain what was done.
 
 **When to use `/teach`**:

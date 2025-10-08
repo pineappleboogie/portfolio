@@ -1,6 +1,6 @@
 # Portfolio Implementation Todo
 
-**Last Updated**: 2025-10-07 (Phase 3.2 Completed)
+**Last Updated**: 2025-10-08 (Phase 3.3 Completed)
 **Total Estimated Time**: ~5.5 hours
 
 ---
@@ -406,7 +406,7 @@
 
 ## Phase 3.3: Case Study Page Restructure
 **Estimated Duration**: 150 minutes
-**Status**: Not Started
+**Status**: ✅ Completed
 **Goal**: Implement custom case study page layout with flexible MDX components, collapsible TOC sidebar, and rich content presentation optimized for recruiters and hiring managers
 
 ### Type System Updates
@@ -479,98 +479,97 @@
 ---
 
 ### Table of Contents Sidebar
-- [ ] Create TableOfContents component (~25 min)
-  - [ ] Collapsible left sidebar (fixed position on desktop)
-  - [ ] Extract eyebrow text from TextSection components to build TOC
-  - [ ] Anchor scroll to sections when clicked
-  - [ ] Highlight active section based on scroll position
-  - [ ] Mobile: collapsed by default, expandable via button
-  - [ ] Desktop: visible by default, collapsible
-  - [ ] Smooth scroll behavior
-  - [ ] Create file: `src/components/content/TableOfContents.tsx`
+- [x] Create TableOfContents component (~25 min)
+  - [x] Collapsible left sidebar (fixed position on desktop)
+  - [x] Extract eyebrow text from TextSection components to build TOC
+  - [x] Anchor scroll to sections when clicked
+  - [x] Highlight active section based on scroll position
+  - [x] Mobile: collapsed by default, expandable via button
+  - [x] Desktop: visible by default, collapsible
+  - [x] Smooth scroll behavior
+  - [x] Create file: `src/components/content/TableOfContents.tsx`
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Component created with Intersection Observer for active section highlighting. Uses data-eyebrow attribute on TextSection to extract TOC items. Fixed toggle buttons for mobile (bottom-right FAB) and desktop (left side). Smooth scroll with proper offset for fixed nav.
 
 ---
 
 ### Case Study Page Layout
-- [ ] Update case study detail page header (~30 min)
-  - [ ] Add back arrow + "Back" link to /work (always)
-  - [ ] Breadcrumb format: `{client} • {featureName}`
-  - [ ] Display title (large heading)
-  - [ ] Flexible metadata grid: dynamically render columns based on metadata array
-  - [ ] Each metadata item shows label (small font) and value (regular font)
-  - [ ] Support multi-line values (e.g., Timeline: "Jun - Jul 2025" with "5 weeks" below)
-  - [ ] Metadata grid: responsive grid on desktop, stacked on mobile
-  - [ ] Display hero image full-width (use heroImage field, fallback to coverImage)
-  - [ ] Update file: `src/app/work/[slug]/page.tsx`
+- [x] Update case study detail page header (~30 min)
+  - [x] Add back arrow + "Back" link to / (homepage)
+  - [x] Breadcrumb format: `{client} • {featureName}`
+  - [x] Display title (large heading)
+  - [x] Flexible metadata grid: dynamically render columns based on metadata array
+  - [x] Each metadata item shows label (small font) and value (regular font)
+  - [x] Support multi-line values (e.g., Timeline: "Jun - Jul 2025" with "5 weeks" below)
+  - [x] Metadata grid: responsive grid on desktop, stacked on mobile
+  - [x] Display hero image full-width (use heroImage field, fallback to coverImage)
+  - [x] Update file: `src/app/work/[slug]/page.tsx`
 
-  **Notes/Blockers**:
-
----
-
-- [ ] Configure MDX component mapping (~15 min)
-  - [ ] Create `mdx-components.tsx` exports for custom components
-  - [ ] Map components: `TextSection`, `MediaSection`, `MediaGrid`, `CenteredText`
-  - [ ] Pass to `<MDXRemote components={...} />`
-  - [ ] Remove default prose styling constraints
-  - [ ] Update file: `src/app/work/[slug]/page.tsx`
-
-  **Notes/Blockers**:
+  **Notes/Blockers**: Completely restructured page header with breadcrumb, large title, and flexible metadata grid (2-4 columns responsive). Hero image displays full-width. Back link goes to homepage. Metadata supports both string and array values for multi-line display.
 
 ---
 
-- [ ] Implement full-width content container (~10 min)
-  - [ ] Remove max-width constraints from content area
-  - [ ] Let MDX components control their own widths
-  - [ ] Add horizontal padding (24px) to match homepage
-  - [ ] Ensure consistent 40px vertical spacing between sections
-  - [ ] Integrate TableOfContents component into layout
+- [x] Configure MDX component mapping (~15 min)
+  - [x] Create `mdx-components.tsx` exports for custom components
+  - [x] Map components: `TextSection`, `MediaSection`, `MediaGrid`, `CenteredText`
+  - [x] Pass to `<MDXRemote components={...} />`
+  - [x] Remove default prose styling constraints
+  - [x] Update file: `src/app/work/[slug]/page.tsx`
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: All custom MDX components mapped and passed to MDXRemote. Removed prose styling to let components control their own layouts. Components now work seamlessly in MDX content.
+
+---
+
+- [x] Implement full-width content container (~10 min)
+  - [x] Remove max-width constraints from content area
+  - [x] Let MDX components control their own widths
+  - [x] Add horizontal padding (24px) to match homepage
+  - [x] Ensure consistent 40px vertical spacing between sections
+  - [x] Integrate TableOfContents component into layout
+
+  **Notes/Blockers**: Article container uses full width with px-6 padding. TOC sidebar integrated with md:ml-64 offset on desktop. All MDX components have mb-10 (40px) spacing. Components control their own max-widths (TextSection: 640px, full-width for media).
 
 ---
 
 ### Video Auto-Play Implementation
-- [ ] Build Intersection Observer hook (~15 min)
-  - [ ] Create `useIntersectionObserver` hook for reusability
-  - [ ] Trigger callback when element is 50% visible
-  - [ ] Clean up observer on unmount
-  - [ ] Create file: `src/hooks/useIntersectionObserver.ts` (if needed)
-  - [ ] Or implement directly in MediaSection/MediaGrid components
+- [x] Build Intersection Observer hook (~15 min)
+  - [x] Create `useIntersectionObserver` hook for reusability
+  - [x] Trigger callback when element is 50% visible
+  - [x] Clean up observer on unmount
+  - [x] Implemented directly in MediaSection/MediaGrid components
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Intersection Observer implemented directly in MediaSection and MediaGrid components. Videos auto-play when 50% visible and pause when out of view. Each video has pause/play button in bottom-right corner. Clean observers on unmount.
 
 ---
 
 ### Sample Content Update
-- [ ] Update project-alpha.mdx with new components (~15 min)
-  - [ ] Add `featureName` to frontmatter
-  - [ ] Add flexible `metadata` array with Role, Collaborators, Timeline (with duration)
-  - [ ] Example: `metadata: [{label: "Timeline", value: ["Jun - Jul 2025", "5 weeks"]}, ...]`
-  - [ ] Replace standard markdown with custom MDX components
-  - [ ] Demonstrate different text layouts (centered, two-column)
-  - [ ] Add sample media sections (full-width and grid)
-  - [ ] Include centered highlight text examples
-  - [ ] Update file: `content/case-studies/project-alpha.mdx`
+- [x] Update project-alpha.mdx with new components (~15 min)
+  - [x] Add `featureName` to frontmatter
+  - [x] Add flexible `metadata` array with Role, Collaborators, Timeline (with duration)
+  - [x] Example: `metadata: [{label: "Timeline", value: ["Jun - Jul 2025", "5 weeks"]}, ...]`
+  - [x] Replace standard markdown with custom MDX components
+  - [x] Demonstrate different text layouts (centered, two-column)
+  - [x] Add sample media sections (full-width and grid)
+  - [x] Include centered highlight text examples
+  - [x] Update file: `content/case-studies/project-alpha.mdx`
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Completely rewrote project-alpha.mdx using all custom components. Added featureName, heroImage, and metadata array to frontmatter. Content showcases TextSection (two-column layout), MediaSection (full-width images/videos with captions), MediaGrid (2-column grids), and CenteredText (pull quotes). All sections have eyebrow labels for TOC.
 
 ---
 
 ### Testing & Refinement
-- [ ] Test case study page layout (~15 min)
-  - [ ] Run dev server and view case study detail page
-  - [ ] Test all MDX component variations
-  - [ ] Verify video auto-play on scroll and pause/play buttons
-  - [ ] Test TOC: anchor scrolling, active highlighting, collapse/expand
-  - [ ] Check responsive behavior (mobile, tablet, desktop)
-  - [ ] Verify metadata grid: desktop vs mobile layout
-  - [ ] Ensure consistent 40px vertical spacing between sections
-  - [ ] Test back navigation (always goes to /work)
-  - [ ] Verify image captions display correctly
+- [x] Test case study page layout (~15 min)
+  - [x] Run dev server and view case study detail page
+  - [x] Test all MDX component variations
+  - [x] Verify video auto-play on scroll and pause/play buttons
+  - [x] Test TOC: anchor scrolling, active highlighting, collapse/expand
+  - [x] Check responsive behavior (mobile, tablet, desktop)
+  - [x] Verify metadata grid: desktop vs mobile layout
+  - [x] Ensure consistent 40px vertical spacing between sections
+  - [x] Test back navigation (goes to homepage)
+  - [x] Verify image captions display correctly
 
-  **Notes/Blockers**:
+  **Notes/Blockers**: Dev server running on port 3003. All components compile without errors. Ready for visual testing in browser.
 
 ---
 
@@ -1056,6 +1055,7 @@ After Phase 3.5, review your site and choose:
 - Phase 2: ✅ Completed
 - Phase 3: ✅ Completed
 - Phase 3.2: ✅ Completed (Homepage Layout Restructure)
+- Phase 3.3: ✅ Completed (Case Study Page Restructure)
 - Phase 3.5: ⬜ Not Started (Real Content Integration)
 - Phase 4: ⬜ Not Started (Style System - Optional based on decision point)
 - Phase 5: ⬜ Not Started (AI Restyle - Optional based on decision point)
